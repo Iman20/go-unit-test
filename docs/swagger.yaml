@@ -1,0 +1,71 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server for an authentication API.
+  title: Auth API
+  version: "1.0"
+paths:
+  /v1/user/signin:
+    post:
+      consumes:
+      - application/json
+      description: Sign in a user with username and password
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: string
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User signed up successfully
+          schema:
+            type: string
+      summary: Sign in a user
+      tags:
+      - auth
+  /v1/user/signup:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with username, password, and email
+      parameters:
+      - description: Username
+        in: body
+        name: username
+        required: true
+        schema:
+          type: string
+      - description: Password
+        in: body
+        name: password
+        required: true
+        schema:
+          type: string
+      - description: Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User signed up successfully
+          schema:
+            type: string
+      summary: Sign up a new user
+      tags:
+      - auth
+swagger: "2.0"
